@@ -3,7 +3,7 @@
 <html>
 <head>
 	<title>Estacionamento JS</title>
-	<link rel="stylesheet" type="text/css" href="{{url_for('assets',filename='css/bootstrap.min.css')}}">
+	<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/bootstrap.min.css" />
 </head>
 <body onload="mostraPatio()">
 <div class="container">
@@ -40,8 +40,8 @@
 		</div>
 	</div>
 </div>
-<script src="{{url_for('assets',filename='js/jquery.js')}}"></script>
-<script src="{{url_for('assets',filename='js/bootstrap.min.js')}}"></script>
-<script src="{{url_for('assets',filename='js/main.js')}}"></script>
+<script src="{{ site.baseurl }}/assets/js/jquery.js"></script>
+<script src="{{ site.baseurl }}/assets/js/bootstrap.min.js"></script>
+<script src="{{ site.baseurl }}/assets/js/main.js"></script>
 </body>
 </html>
