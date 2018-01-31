@@ -1,1 +1,650 @@
-hfxzhxjxj
+
+<!DOCTYPE HTML>
+<html>
+<head>
+
+<title>Spider Pain&eacute;is Eletr&ocirc;nicos: Painel LED RGB, Chamada de Senha e Mensagens</title>
+<meta name="description" content="Venda e loca&ccedil;&atilde;o de pain&eacute;is eletr&ocirc;nicos LED RGB para publicidade, shows e eventos. Pain&eacute;is LED de mensagens e para chamada de senhas.">
+<meta name="keywords" content="Painel LED RGB, chamada de senhas, painel eletr&ocirc;nico, pain&eacute;is eletr&ocirc;nicos, painel led, Filas e Senhas, Painel de Mensagem, Rel&oacute;gios e Contadores, Aplica&ccedil;&otilde;es Especiais, venda, loca&ccedil;&atilde;o, aluguel">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Digital UP">
+<link rel="shortcut icon" href="images/favicon.ico">
+<link rel="stylesheet" type="text/css" href="css/geral.css">
+
+<script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
+
+<!-- Início script para rotação dos banners dos produtos na home page -->
+
+<script type="text/javascript">
+	var banner 		  = 2;
+	var total_banner  = 5;
+	var tempo         = 3000;
+	var interval      = "";
+	
+$(document).ready(function(){
+		
+	rotaBanner();
+	
+	$("#BannerGeral #Conteudo .Banner").mouseenter(function(){
+		clearInterval(interval);
+	});
+	
+	$("#BannerGeral #Conteudo .Banner").mouseleave(function(){
+		cont = $(this).attr('id');
+		cont = cont.replace("Banner","");
+		banner = parseInt(cont);
+		banner = banner + 1;
+		if(banner > total_banner){
+			banner = 1;	
+		}		
+	})
+	
+	$("#BannerGeral #Conteudo #botoes .Btn").mouseenter(function(){
+		$("#BannerGeral #Conteudo #botoes .Btn").removeClass('BtnSelecionado');
+		$(this).addClass('BtnSelecionado');
+		cont = $(this).attr('id');
+		cont = cont.replace("Btn","");
+		banner = parseInt(cont);
+		if(banner > total_banner){
+			banner = 1;	
+		}
+		tempo = 300000;
+		clearInterval(interval);
+		$("#BannerGeral #Conteudo .Banner").fadeOut().delay(300);
+		$("#BannerGeral #Conteudo #Banner"+banner).fadeIn();
+	})
+	
+});
+
+
+function rotaBanner(){
+	
+	interval = setInterval(function(){
+		
+		$("#BannerGeral #Conteudo .Banner").fadeOut().delay(300);
+		$("#BannerGeral #Conteudo #Banner"+banner).fadeIn();
+		
+		$("#BannerGeral #Conteudo #botoes .Btn").removeClass('BtnSelecionado');
+		$("#BannerGeral #Conteudo #botoes #Btn"+banner).addClass('BtnSelecionado');
+		
+		banner++;
+		
+		if(banner > total_banner){
+			banner = 1;	
+		}
+		
+	}, tempo);
+}
+</script>
+
+
+
+
+<!-- Início script para rotação dos banners das fotos das páginas de produtos -->
+
+<script type="text/javascript">
+	var bannerProdutos 		  = 1;
+	var total_bannerProdutos  = 10;
+	var tempoProdutos         = 2000;
+	var intervalProdutos      = "";
+	var minimo_bannerProdutos = 1;
+	
+$(document).ready(function(){
+		
+	rotaBannerProdutos();
+	
+	
+	$("#Miolo #Conteudo #SeguraBannerProduto").mouseenter(function(){
+		clearInterval(intervalProdutos);
+	});
+	
+	
+	
+	$("#Miolo #Conteudo #SeguraBannerProduto #SeguraThumbs .Thumb").click(function(){
+		$("#Miolo #Conteudo #SeguraBannerProduto #SeguraThumbs .Thumb").removeClass('Selecionado');
+		$(this).addClass('Selecionado');
+		contProdutos = $(this).attr('id');
+		contProdutos = contProdutos.replace("Thumb","");
+		bannerProdutos = parseInt(contProdutos);
+		$("#Miolo #Conteudo #SeguraBannerProduto .Banner").hide();
+		$("#Miolo #Conteudo #SeguraBannerProduto #Banner"+bannerProdutos).fadeIn();
+		$("#Miolo #Conteudo #SeguraBannerProduto .TextoBanner").hide();
+		$("#Miolo #Conteudo #SeguraBannerProduto #TextoBanner"+bannerProdutos).fadeIn();
+	})
+	
+	$("#Miolo #Conteudo #SeguraBannerProduto .SetaDireita").click(function(){
+		bannerProdutos++;
+		if(bannerProdutos > total_bannerProdutos){
+			bannerProdutos = 1;	
+		}
+		$("#Miolo #Conteudo #SeguraBannerProduto #SeguraThumbs .Thumb").removeClass('Selecionado');
+		$("#Miolo #Conteudo #SeguraBannerProduto #SeguraThumbs #Thumb"+bannerProdutos).addClass('Selecionado');
+		$("#Miolo #Conteudo #SeguraBannerProduto .Banner").hide();
+		$("#Miolo #Conteudo #SeguraBannerProduto #Banner"+bannerProdutos).fadeIn();
+		$("#Miolo #Conteudo #SeguraBannerProduto .TextoBanner").hide();
+		$("#Miolo #Conteudo #SeguraBannerProduto #TextoBanner"+bannerProdutos).fadeIn();
+	})
+	
+	$("#Miolo #Conteudo #SeguraBannerProduto .SetaEsquerda").click(function(){
+		bannerProdutos--;
+		if(bannerProdutos < minimo_bannerProdutos){
+			bannerProdutos = total_bannerProdutos;
+		}
+		$("#Miolo #Conteudo #SeguraBannerProduto #SeguraThumbs .Thumb").removeClass('Selecionado');
+		$("#Miolo #Conteudo #SeguraBannerProduto #SeguraThumbs #Thumb"+bannerProdutos).addClass('Selecionado');
+		$("#Miolo #Conteudo #SeguraBannerProduto .Banner").hide();
+		$("#Miolo #Conteudo #SeguraBannerProduto #Banner"+bannerProdutos).fadeIn();
+		$("#Miolo #Conteudo #SeguraBannerProduto .TextoBanner").hide();
+		$("#Miolo #Conteudo #SeguraBannerProduto #TextoBanner"+bannerProdutos).fadeIn();
+	})
+	
+});
+
+
+function rotaBannerProdutos(){
+	
+	intervalProdutos = setInterval(function(){
+		
+		bannerProdutos++;
+		
+		if(bannerProdutos > total_bannerProdutos){
+			bannerProdutos = 1;	
+		}
+		
+		$("#Miolo #Conteudo #SeguraBannerProduto .Banner").hide();
+		$("#Miolo #Conteudo #SeguraBannerProduto #Banner"+bannerProdutos).fadeIn();
+		
+		$("#Miolo #Conteudo #SeguraBannerProduto .TextoBanner").hide();
+		$("#Miolo #Conteudo #SeguraBannerProduto #TextoBanner"+bannerProdutos).fadeIn();
+		
+		$("#Miolo #Conteudo #SeguraBannerProduto #SeguraThumbs .Thumb").removeClass('Selecionado');
+		$("#Miolo #Conteudo #SeguraBannerProduto #SeguraThumbs #Thumb"+bannerProdutos).addClass('Selecionado');
+		
+	}, tempoProdutos);
+}
+</script>
+
+
+
+
+
+<!-- Início script para abertura e fechamento das abas dos diferenciais do produto -->
+
+<script type="text/javascript">
+	
+$(document).ready(function(){
+	
+	$("#Miolo #Conteudo #Produto #Diferenciais #ConteudoGeral1 .AbaCont").click(function(){
+		cont = $(this).attr('id');
+		cont = cont.replace("AbaCont","");
+		abaatual = parseInt(cont);
+		$("#Miolo #Conteudo #Produto #Diferenciais #ConteudoGeral1 .Cont").slideUp();
+		$("#Miolo #Conteudo #Produto #Diferenciais #ConteudoGeral1 #Cont"+abaatual).slideDown();
+	})
+	
+});
+
+</script>
+
+
+
+
+
+<!-- Início script para troca de abas -->
+
+<script type="text/javascript">
+	
+$(document).ready(function(){
+	
+	$("#Miolo #Conteudo #Produto #Diferenciais #Menu .Btn").click(function(){
+		cont = $(this).attr('id');
+		cont = cont.replace("Btn","");
+		abaatualok = parseInt(cont);
+		$("#Miolo #Conteudo #Produto #Diferenciais ul li").removeClass('Selecionado');
+		$(this).addClass('Selecionado');
+		$("#Miolo #Conteudo #Produto #Diferenciais .ConteudoGeral").slideUp();
+		$("#Miolo #Conteudo #Produto #Diferenciais #ConteudoGeral"+abaatualok).slideDown();
+	})
+	
+	$("#Miolo #Conteudo #Produto #Diferenciais .ConteudoGeral #btn #CliqueAqui").click(function(){
+		$("#Miolo #Conteudo #Produto #Diferenciais ul li").removeClass('Selecionado');
+		$("#Miolo #Conteudo #Produto #Diferenciais ul #Btn1").addClass('Selecionado');
+		$("#Miolo #Conteudo #Produto #Diferenciais .ConteudoGeral").slideUp();
+		$("#Miolo #Conteudo #Produto #Diferenciais #ConteudoGeral1").slideDown();
+	})
+	
+});
+
+</script>
+
+
+
+
+
+<!-- Início script para abertura e fechamento das abas dos modelos -->
+
+<script type="text/javascript">
+	
+$(document).ready(function(){
+	
+	$("#Miolo #Conteudo #Produto #Modelos #ConteudoGeral .AbaCont").click(function(){
+		cont = $(this).attr('id');
+		cont = cont.replace("AbaCont","");
+		abaatual = parseInt(cont);
+		$("#Miolo #Conteudo #Produto #Modelos .Cont").slideUp();
+		$("#Miolo #Conteudo #Produto #Modelos #Cont"+abaatual).slideDown();
+	})
+	
+});
+
+</script>
+
+
+
+
+
+<!-- Início script validador do formulario -->
+
+<script language="JavaScript">
+
+function validaForm(){
+	    if (document.form1.nome.value == ''){
+		alert('O campo Nome deve ser preenchido.');
+		document.form1.nome.focus();
+		return false;
+		} 
+
+		if (document.form1.empresa.value == ''){
+		alert('O campo empresa deve ser preenchido.');
+		document.form1.empresa.focus();
+		return false;
+		}
+		
+		if (document.form1.email.value == ''){
+		alert('O campo E-Mail deve ser preenchido.');
+		document.form1.email.focus();
+		return false;
+		}
+		
+		
+		parte1 = document.form1.email.value.indexOf('@');
+		parte2 = document.form1.email.value.indexOf('.');
+		parte3 = document.form1.email.value.length;
+		if (!(parte1 >= 3 && parte2 >= 1 && parte3 >= 9)) {
+		alert ('O campo E-mail deve conter um endereÃ§o eletrÃ´nico!');
+		document.form1.email.focus(); 
+		return false;
+		} 
+		
+		if (document.form1.ddd.value == ''){
+		alert('VocÃª deve colocar um prefixo.');
+		document.form1.ddd.focus();
+		return false;
+		}
+		
+		if (isNaN(document.form1.tel.value)){
+		alert('VocÃª deve colocar um telefone vï¿½lido.');
+		document.form1.ddd.focus();
+		return false;
+		}
+		
+		if (document.form1.mensagem.value == ''){
+		alert('VocÃª deve deixar uma mensagem para nossa Equipe.');
+		document.form1.mensagem.focus();
+		return false;
+		}
+		return true;
+		}
+</script>
+
+
+
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+
+
+
+
+
+<div id="Topo" class="" itemscope itemtype="http://data-vocabulary.org/Organization">
+	
+     <div id="Conteudo" class="dpfCenter">
+    
+    	<a href="index.php" title="Spider Pain&eacute;is Eletr&ocirc;nicos: Painel LED RGB, Chamada de Senhas e Mensagens" itemprop="logo"><h1 class="dpfLeft Logotipo" style="background:url(images/logotipo2013.png) center center no-repeat; text-indent:-9999px; width:297px; height:95px;">Spider Pain&eacute;is Eletr&ocirc;nicos: Painel LED RGB, Chamada de Senhas e Mensagens</h1></a>
+        <img src="images/Desde_1992.png" class="dpfLeft Selo21Anos" title="Especialista em LED desde 1992" alt="Desde 1992.png">
+        
+        <ul class="dpfLeft MinoraBranca" style="color:#393f7d;">
+        	<ul class="dpfLeft " style="color:#393f7d;">
+        		<li class="dpfLeft Titulo" title="Produtos" style="color:#393f7d;">Produtos</li>
+        		<li class="dpfLeft TransicaoMedia" style="color:#393f7d;"><a href="painel-led-rgb-para-venda-e-locacao-publicidade-shows-eventos.php" title="Painel LED RGB">Painel LED RGB</a></li>
+                <li class="dpfLeft TransicaoMedia" style="color:#393f7d;"><a href="chamada-de-senhas-e-atendimento-de-filas-pela-tve-e-painel-led.php" title="Filas e Senhas">Filas e Senhas</a></li>
+                <li class="dpfLeft TransicaoMedia" style="color:#393f7d;"><a href="painel-led-mensagem-variada.php" title="Painel de Mensagem">Painel de Mensagem</a></li>
+                <li class="dpfLeft TransicaoMedia" style="color:#393f7d;"><a href="Relogios-e-Indicadores-de-Horario.php" title="Relógios">Rel&oacute;gios</a></li>
+                <li class="dpfLeft TransicaoMedia" style="color:#393f7d;"><a href="aplicacoes-e-projetos-especiais-painel-led.php" title="Aplicações Especiais">Aplica&ccedil;&otilde;es Especiais</a></li>
+            </ul>
+            <a href="painel-led-rgb-para-venda-e-locacao-publicidade-shows-eventos.php#1992" class="dpfLeft Link Btn" id="CliqueAqui" title="Contato & Suporte">Empresa</a>
+            <a href="http://www.spider.com.br/blog/" target="_blank" class="dpfLeft Link " title="Cases">Blog</a>
+            <!--<a href="#" class="dpfLeft Link" title="Sobre Nós">Sobre N&oacute;s</a>-->
+            <a href="http://www.spider.com.br/cgi-bin/downloads/sistema_downloads.cgi?funcao=lista_downloads_gerais&id=068432764000190" class="dpfLeft Link" title="Downloads">Downloads</a>
+            <a href="Contato-e-Suporte.php" class="dpfLeft Link " title="Contato & Suporte UltimoBotao">Contato & Suporte</a>
+            <a href="http://www.spider.com.br/paineis-eletronicos/mapa-site.php" class="dpfLeft Link " title="Mapa do Site">Mapa do Site</a>
+       </ul>
+        
+        <!--<iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com%2Fpages%2FGrupo-Spider-Pain%25C3%25A9is-a-Led-e-Sistemas-de-Atendimento%2F148679725255573%3Ffref%3Dts&amp;send=false&amp;layout=button_count&amp;width=85&amp;show_faces=false&amp;font=arial&amp;colorscheme=light&amp;action=like&amp;height=21" scrolling="no" frameborder="0" style=" margin-top:15px; display:block; float:right; text-align:right; border:none; overflow:hidden; width:85px; height:21px;" allowTransparency="true"></iframe>-->
+        
+    	<p class="TelefoneTopo FlexoBoldBranca dpfRight" title="11 2848-6700" itemprop="tel"> 11 2842-6700</p>
+        <a href="http://loja.spider.com.br/" target="_blank" class="BtnLojaVirtual FlexoBoldBranca dpfRight" title="Loja Virtual" itemprop="tel"><p class="dpfLeft">LOJA VIRTUAL</p><img src="images/seta_lojavirtual.png" class="dpfLeft" /></a>
+    
+    </div>
+
+</div>
+
+
+
+
+<div id="BannerGeral" class="dpfLeft">
+	
+    <div id="Conteudo" class="dpfCenter">
+    
+		<div id="banner" itemscope itemtype="Product">        	
+			
+            <a href="painel-led-rgb-para-venda-e-locacao-publicidade-shows-eventos.php">
+            <div id="Banner1" class="dpfLeft Banner" title="Painel LEd RGB" itemprop="Painel LED RGB">
+            
+                <div class="Box dpfLeft">
+                    <h2>Painel LED RGB</h2>
+                    <h3>Venda e Loca&ccedil;&atilde;o</h3>
+                    <img src="images/icone_btn1.png"  alt="relogio">
+                    <p>Lideran&ccedil;a conquistada com investimentos em Pessoal, Tecnologia e  Qualidade.</p>
+                </div>
+          	
+                <div id="ConteudoBanner" class="dpfLeft">
+                    <img src="images/img_banner_painelimagens_1.png" alt="banner1" title="Painel LEd RGB">
+                    <img src="images/img_banner_painelimagens_2.png" alt="banner2" title="Painel LEd RGB">
+                    <img src="images/img_banner_painelimagens_3.png" alt="banner3" title="Painel LEd RGB">
+                    <img src="images/img_banner_painelimagens_4.png" alt="banner4" title="Painel LEd RGB">
+                    <img src="images/img_banner_painelimagens_5.png" alt="banner5" title="Painel LEd RGB">
+                    <img src="images/img_banner_painelimagens_6.png" alt="banner6" title="Painel LEd RGB">
+                </div>
+                
+            </div>
+            </a>
+            
+            
+            
+            
+            <a href="chamada-de-senhas-e-atendimento-de-filas-pela-tve-e-painel-led.php">
+            <div id="Banner2" class="dpfLeft Banner" title="Filas e Senhas" itemprop="Filas e Senhas">
+            
+                <div class="Box dpfLeft">
+                    <h2>Filas e Senhas</h2>
+                    <h3>Venda e Loca&ccedil;&atilde;o</h3>
+                    <img src="images/icone_btn2.png"  alt="relogio">
+                    <p>Lideran&ccedil;a conquistada com investimentos em Pessoal, Tecnologia e  Qualidade.</p>
+                </div>
+          	
+                <div id="ConteudoBanner" class="dpfLeft">
+                    <img src="images/img_banner_filas.png"  alt="banner1">
+                </div>
+                
+            </div>
+            </a>
+            
+            
+            
+            
+            <a href="painel-led-mensagem-variada.php">
+            <div id="Banner3" class="dpfLeft Banner" title="Painel de Mensagem" itemprop="Painel de Mensagem">
+            
+                <div class="Box dpfLeft">
+                    <h2>Painel de Mensagem</h2>
+                    <h3>Venda e Loca&ccedil;&atilde;o</h3>
+                    <img src="images/icone_btn3.png"  alt="relogio">
+                    <p>Lideran&ccedil;a conquistada com investimentos em Pessoal, Tecnologia e  Qualidade.</p>
+                </div>
+          	
+                <div id="ConteudoBanner" class="dpfLeft">
+                    <img src="images/img_banner_mensagens_1.png" alt="banner1" title="Painel de Mensagem">
+                    <img src="images/img_banner_mensagens_2.png" alt="banner2" title="Painel de Mensagem">
+                    <img src="images/img_banner_mensagens_3.png" alt="banner3" title="Painel de Mensagem">
+                    <img src="images/img_banner_mensagens_4.png" alt="banner4" title="Painel de Mensagem">
+                    <img src="images/img_banner_mensagens_5.png" alt="banner5" title="Painel de Mensagem">
+                    <img src="images/img_banner_mensagens_6.png" alt="banner6" title="Painel de Mensagem">
+                </div>
+                
+            </div>
+            </a>
+            
+            
+            
+            
+            <a href="Relogios-e-Indicadores-de-Horario.php">
+            <div id="Banner4" class="dpfLeft Banner" title="Rel&oacute;gios e Contadores" itemprop="Rel&oacute;gios e Contadores">
+            
+                <div class="Box dpfLeft">
+                    <h2>Rel&oacute;gios e Contadores</h2>
+                    <h3>Venda e Loca&ccedil;&atilde;o</h3>
+                    <img src="images/icone_relogio.png"  alt="relogio">
+                    <p>Lideran&ccedil;a conquistada com investimentos em Pessoal, Tecnologia e  Qualidade.</p>
+                </div>
+          	
+                <div id="ConteudoBanner" class="dpfLeft">
+                    <img src="images/img_banner_relogioscontadores_1.png" alt="banner1" title="Rel&oacute;gios e Contadores">
+                    <img src="images/img_banner_relogioscontadores_2.png" alt="banner2" title="Rel&oacute;gios e Contadores">
+                    <img src="images/img_banner_relogioscontadores_3.png" alt="banner3" title="Rel&oacute;gios e Contadores">
+                    <img src="images/img_banner_relogioscontadores_4.png" alt="banner4" title="Rel&oacute;gios e Contadores">
+                    <img src="images/img_banner_relogioscontadores_5.png" alt="banner5" title="Rel&oacute;gios e Contadores">
+                    <img src="images/img_banner_relogioscontadores_6.png" alt="banner6" title="Rel&oacute;gios e Contadores">
+                </div>
+                
+            </div>
+            </a>
+            
+            
+            
+            
+            <a href="aplicacoes-e-projetos-especiais-painel-led.php">
+            <div id="Banner5" class="dpfLeft Banner" itemprop="Aplica&ccedil;&otilde;es Especiais">
+            
+                <div class="Box dpfLeft" title="Aplica&ccedil;&otilde;es Especiais">
+                    <h2>Aplica&ccedil;&otilde;es Especiais</h2>
+                    <h3>Venda e Loca&ccedil;&atilde;o</h3>
+                    <img src="images/icone_btn5.png"  alt="relogio">
+                    <p>Lideran&ccedil;a conquistada com investimentos em Pessoal, Tecnologia e  Qualidade.</p>
+                </div>
+          	
+                <div id="ConteudoBanner" class="dpfLeft">
+                    <img src="images/img_banner_aplicacoesespeciais_1.png"  alt="banner1" title="Aplica&ccedil;&otilde;es Especiais">
+                    <img src="images/img_banner_aplicacoesespeciais_3.png"  alt="banner2" title="Aplica&ccedil;&otilde;es Especiais">
+                    <img src="images/img_banner_aplicacoesespeciais_2.png" alt="banner3" title="Aplica&ccedil;&otilde;es Especiais">
+                </div>
+                
+            </div>
+            </a>
+            
+            
+            
+               
+			<div id="botoes">
+        
+            	<a href="painel-led-rgb-para-venda-e-locacao-publicidade-shows-eventos.php" id="Btn1" class="Btn BtnSelecionado" title="Painel LED RGB">
+       	    		<img src="images/icone_btn1.png" alt="botao1" class="imgbtn">
+           	  		<p class="Minora16">Painel LED RGB</p>
+            	</a>
+           
+            	<a href="chamada-de-senhas-e-atendimento-de-filas-pela-tve-e-painel-led.php" id="Btn2" class="Btn" title="Filas e Senhas">
+       	    		<img src="images/icone_btn2.png" alt="botao2">
+            		<p class="Minora16">Filas e Senhas</p>            
+            	</a>
+           
+            	<a href="painel-led-mensagem-variada.php" id="Btn3" class="Btn" title="Painel de Mensagem">
+                	<img src="images/icone_btn3.png"  alt="botao3">
+            		<p class="Minora16btn3">Painel de Mensagem</p>
+            	</a>
+           
+            	<a href="Relogios-e-Indicadores-de-Horario.php" id="Btn4" class="Btn" title="Rel&oacute;gios e Contadores">
+       	    		<img src="images/icone_relogio.png"  alt="botao4" >
+            		<p class="Minora16btn4">Rel&oacute;gios e Contadores</p>            
+          		</a>
+            
+            	<a href="aplicacoes-e-projetos-especiais-painel-led.php" id="Btn5" class="Btn" title="Aplica&ccedil;&otilde;es Especiais">
+       	    		<img src="images/icone_btn5.png" alt="botao5" class="botao5">
+            		<p class="Minora16btn5">Aplica&ccedil;&otilde;es Especiais</p>            
+            	</a>
+                
+                <a href="http://loja.spider.com.br/" target="_blank" id="BtnLojaVirtual" class="" title="Aplica&ccedil;&otilde;es Especiais">
+       	    		<img src="images/fundo_btn_menu_lojavirtual.png" alt="botao5" class="botao5 lojavirtual">
+            		<p class="Minora16btn5">Compre pela Loja Virtual</p>            
+            	</a>
+                
+                <a href="Contato-e-Suporte.php" id="BtnContato" title="Fale Conosco">
+       	    		<img src="images/icone_btn6.png"  alt="botao6">
+            		<p class="Minora40">Fale Conosco<br>
+					11 2842-6700</p>            
+            	</a>
+            
+        	</div>
+       
+        </div>
+    
+    </div>
+</div>
+
+
+<div id="Miolo" class="dpfLeft">
+
+	<div id="Conteudo"  class="dpfCenter">
+		
+		<div class="dpfLeft" id="BoxVideo">	
+        	<h2 class=" FlexoBoldBranca">SPIDER pelo Brasil</h2>
+        	<p><img src="images/youtube.png"  alt="youtube" /></p>
+		</div>
+        
+                
+			<div id="BoxCase" class="dpfLeft" itemscope itemtype="Notices">
+        		<h2 class="FlexoBoldBranca">Cases e Not&iacute;cias</h2> 
+                
+                         
+        			<div id="Box1" itemprop="Article">
+         										
+						<img width="237" height="209" src="http://www.spider.com.br/blog/wp-content/uploads/2016/06/Painel-de-Led-Mensagens-2L-300x265.jpg" class="attachment-245x209 wp-post-image" alt="Painel de Led Mensagens 2L" />						
+								    	    <h3 class="FlexoBoldCinzaEscuro">Painel de mensagem de Led</h3>
+         				<div class="MinoraCinza"><p>O painel de mensagem de Led Spider apresenta textos objetivos e dinâmicos, que atraem os olhares e alcançam excelentes resultados na comunicação com o público. A Spider é pioneira na fabricação e venda de painel de mensagem de Led no Brasil, dedicando-se ao desenvolvimento desse tipo de equipamento desde o início de suas atividades em 1992&#8230;.</p>
+<div style="height:33px;" class="really_simple_share robots-nocontent snap_nopreview"><div class="really_simple_share_facebook_like" style="width:50px;"><iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.spider.com.br%2Fblog%2F%3Fp%3D800&amp;send=false&amp;layout=button_count&amp;width=50&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;height=27&amp;locale=en_US" 
+						scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:50px; height:27px;" allowTransparency="true"></iframe></div><div class="really_simple_share_google1" style="width:55px;"><div class="g-plusone" data-size="medium" data-href="http://www.spider.com.br/blog/?p=800" ></div></div><div class="really_simple_share_linkedin" style="width:60px;"><script type="IN/Share" data-counter="right" data-url="http://www.spider.com.br/blog/?p=800"></script></div><div class="really_simple_share_twitter" style="width:75px;"><a href="https://twitter.com/share" onclick="__gaTracker('send', 'event', 'outbound-article', 'https://twitter.com/share', '');" class="twitter-share-button" data-count="horizontal" 
+						data-text="Painel de mensagem de Led" data-url="http://www.spider.com.br/blog/?p=800" 
+						data-via=""></a></div><div class="really_simple_share_email" style="width:50px;"><a href="mailto:?subject=Painel%20de%20mensagem%20de%20Led&amp;body=Painel%20de%20mensagem%20de%20Led%20-%20http%3A%2F%2Fwww.spider.com.br%2Fblog%2F%3Fp%3D800"><img src="http://www.spider.com.br/blog/wp-content/plugins/really-simple-facebook-twitter-share-buttons/images/email.png" alt="Email" title="Email" /> </a></div></div>
+		<div style="clear:both;"></div></div>
+         				<p class="MinoraCinza"><a href="http://www.spider.com.br/blog/?p=800" style="background:none;">+ Continue lendo</a></p>
+              		</div>
+                    
+   			           
+        			<div id="Box1" itemprop="Article">
+         										
+						<img width="237" height="209" src="http://www.spider.com.br/blog/wp-content/uploads/2016/05/Painel-de-Led-Posto-300x265.jpg" class="attachment-245x209 wp-post-image" alt="Painel de Led Posto" />						
+								    	    <h3 class="FlexoBoldCinzaEscuro">Painéis de Led em Postos de Gasolina</h3>
+         				<div class="MinoraCinza"><p>Conheça mais um Painel de Led P10mm ultrafino instalado em São Paulo &#8211; na Av Tancredo Neves. Mais um painel de LED Spider &#8211; Tecnologia e Qualidade que resultam na melhor imagem. Parabéns à equipe Spider e muito sucesso ao nosso cliente. Painéis de Led em Postos de Gasolina Outdoor, ultrafino, super leve &#8211; a revolução&#8230;</p>
+<div style="height:33px;" class="really_simple_share robots-nocontent snap_nopreview"><div class="really_simple_share_facebook_like" style="width:50px;"><iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.spider.com.br%2Fblog%2F%3Fp%3D789&amp;send=false&amp;layout=button_count&amp;width=50&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;height=27&amp;locale=en_US" 
+						scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:50px; height:27px;" allowTransparency="true"></iframe></div><div class="really_simple_share_google1" style="width:55px;"><div class="g-plusone" data-size="medium" data-href="http://www.spider.com.br/blog/?p=789" ></div></div><div class="really_simple_share_linkedin" style="width:60px;"><script type="IN/Share" data-counter="right" data-url="http://www.spider.com.br/blog/?p=789"></script></div><div class="really_simple_share_twitter" style="width:75px;"><a href="https://twitter.com/share" onclick="__gaTracker('send', 'event', 'outbound-article', 'https://twitter.com/share', '');" class="twitter-share-button" data-count="horizontal" 
+						data-text="Painéis de Led em Postos de Gasolina" data-url="http://www.spider.com.br/blog/?p=789" 
+						data-via=""></a></div><div class="really_simple_share_email" style="width:50px;"><a href="mailto:?subject=Pain%C3%A9is%20de%20Led%20em%20Postos%20de%20Gasolina&amp;body=Pain%C3%A9is%20de%20Led%20em%20Postos%20de%20Gasolina%20-%20http%3A%2F%2Fwww.spider.com.br%2Fblog%2F%3Fp%3D789"><img src="http://www.spider.com.br/blog/wp-content/plugins/really-simple-facebook-twitter-share-buttons/images/email.png" alt="Email" title="Email" /> </a></div></div>
+		<div style="clear:both;"></div></div>
+         				<p class="MinoraCinza"><a href="http://www.spider.com.br/blog/?p=789" style="background:none;">+ Continue lendo</a></p>
+              		</div>
+                    
+   			          
+                    <!--<div id="Box2" title="Painel Spider RGB e Osasco - Paix&atilde;o pela cidade" itemprop="Article"> 
+                        <img src="images/boxNoticias.png" alt="youtube">
+                        <h3 class="FlexoBoldCinzaEscuro">Painel Spider RGB e Osasco - Paix&atilde;o pela cidade</h3>
+                        <p class="MinoraCinza">O mais novo painel RGB Spider acaba de ser instalado em Osasco, importante munic&iacute;pio da Grande S&atilde;o Paulo com...</p>
+                      <p class=" MinoraCinza "><a href="#">+ Continue lendo</a></p> 
+                    </div>-->
+        
+    		</div>
+    
+	</div>
+</div>
+
+<div id="Cliente" class="dpfLeft">
+	
+    <div id="conteudo" class="dpfCenter">
+    	<h2 class="FlexoBoldBranca">Clientes</h2> 
+  <div id="Box" itemscope itemtype="Customers">
+                <img src="images/logo_vale.png" alt="logo_vale.png" title="Vale do Rio Doce" itemprop="CustomerLogoBrand">
+                <img src="images/logo_toledo.png" alt="logo_toledo.png" title="Toledo" itemprop="CustomerLogoBrand">
+                <img src="images/logo_intermedica.jpg" alt="logo_intermedica.jpg" title="Intermedica" itemprop="CustomerLogoBrand">
+                <img src="images/logo_mogi.png" alt="logo_mogi.png" title="Mogi das Cruzes" itemprop="CustomerLogoBrand">
+                <img src="images/logo_poupatempo.png" alt="logo_poupatempo.png" title="Poupa Tempo" itemprop="CustomerLogoBrand">
+                <img src="images/logo_aacd.png" alt="logo_aacd.png" title="AACD" itemprop="CustomerLogoBrand">
+                <img src="images/logo_makro.png" alt="logo_makro.png" title="Makro" itemprop="CustomerLogoBrand">
+    		</div>
+	</div>
+
+
+</div>
+
+
+
+
+
+<div id="Footer" class="dpfCenter" >
+	
+    <div id="conteudo" class="dpfCenter">
+		
+        	<div id="Minilogo" title="&copy; 2013 - Todos os direitos reservados.">
+    			<img src="images/icone_spider.png" alt="icone_spider.png" title="SPIDER"> 
+        		<p class="TrebuchetCinzaEscuro">&copy; 2013 - Todos os direitos reservados.</p>
+  			</div>
+ 
+	
+    		<div id="redesocial">
+    
+      			<img src="images/icone_bsi.png" alt="icone spider" class="logo" title="ISO 9001:2008"> 
+            	<img src="images/sombra_footer.png" class="Sombralogo">
+            	<a href="https://www.facebook.com/pages/Spider-Tecnologia/148679725255573?ref=ts&fref=ts" target="_blank"><img src="images/icone_facebook.png" alt="icone_facebook.png" title="Facebook"></a>
+      			<a href="http://www.youtube.com/user/spiderpaineis" target="_blank"><img src="images/icone_youtube.png" alt="icone_youtube.png" title="Youtube"></a>
+                
+			<iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com%2Fpages%2FGrupo-Spider-Pain%25C3%25A9is-a-Led-e-Sistemas-de-Atendimento%2F148679725255573%3Ffref%3Dts&amp;send=false&amp;layout=standard&amp;width=85&amp;show_faces=false&amp;font=arial&amp;colorscheme=light&amp;action=like&amp;height=35" scrolling="no" frameborder="0" style="margin-top:40px; float:right; text-align:right; border:none; overflow:hidden; width:210px; height:45px;" allowTransparency="true"></iframe>
+      		<p class="TrebuchetCinzaEscuro">info@spider.com.br<br>Rua Alencar Araripe, 1440 - Sacom&atilde;, S&atilde;o Paulo - SP</p>
+  			</div>
+  	</div>
+    
+</div>
+
+<!-- NEITRAX --> 
+<script type="text/javascript">
+var pkBaseURL = (("https:" == document.location.protocol) ? "https://neitrax.nei.com.br/" : "http://neitrax.nei.com.br/");
+document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+try {
+var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 652);
+piwikTracker.trackPageView();
+piwikTracker.enableLinkTracking();
+} catch( err ) {}
+</script><noscript><p><img src="http://neitrax.nei.com.br/piwik.php?idsite=652" style="border:0" alt="" /></p></noscript>
+<!-- End NEITRAX Tracking Code -->
+
+
+
+
+</body>
+﻿<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1720637-4']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</html>
