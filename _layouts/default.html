@@ -1,48 +1,93 @@
-<!DOCTYPE html>
-<meta charset="utf-8" />
+<!DOCTYPE HTML>
+<!--
+	Horizons by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
 <html>
-<head>
-	<title>Estacionamento JS {{ site.baseurl }} </title>
-	<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
-</head>
-<body onload="mostraPatio()">
-	
-<div class="container">
-	<div class="header clearfix">
-		<h2>Estacionamento JS <small>por: Iago Rocha</small></h2>
-    <div class="jumbotron">
-    	<form id="formulario">
-    	<div class="form-group">
-	    	<label>Modelo do Veículo:</label>
-	    	<input type="text" id="modeloCarro" class="form-control">
-    	</div>
-    	<div class="form-group">
-	    	<label>Placa do Veículo:</label>
-	    	<input type="text" id="placaCarro" class="form-control">
-    	</div>
-    		<button type="submit" class="btn btn-primary">Adicionar</button>
-    	</form>
-    </div>
-	</div>
+	<head>
+		<title>{{ page.title }}</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="{{ site.baseurl }}/assets/css/ie/html5shiv.js"></script><![endif]-->
+		<script src="{{ site.baseurl }}/assets/js/jquery.min.js"></script>
+		<script src="{{ site.baseurl }}/assets/js/jquery.dropotron.min.js"></script>
+		<script src="{{ site.baseurl }}/assets/js/skel.min.js"></script>
+		<script src="{{ site.baseurl }}/assets/js/skel-layers.min.js"></script>
+		<script src="{{ site.baseurl }}/assets/js/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/skel.css" />
+			<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css" />
+		</noscript>
+		<!--[if lte IE 8]><link rel="stylesheet" href="{{ site.baseurl }}/assets/css/ie/v8.css" /><![endif]-->
+	</head>
+	<body>
+	{{ content }}
+		<!-- Footer -->
+			<div id="footer">
+				<div class="container">
 
-	<div class="row marketing">
-		<div class="col-lg-12">
-			<table class="table table-hover">
-				<thead>
-					<tr>
-						<th>Modelo</th>
-						<th>Placa</th>
-						<th>Entrada</th>
-						<th>Finalizar</th>
-					</tr>
-				</thead>
-				<tbody id="resultados"></tbody>
-			</table>		
-		</div>
-	</div>
-</div>
-<script src="/assets/js/jquery.js"></script>
-<script src="/assets/js/bootstrap.min.js"></script>
-<script src="/assets/js/main.js"></script>
-</body>
+					<!-- Lists -->
+						<div class="row">
+							<div class="8u">
+								<section>
+									<header class="major">
+										<h2>Donec dictum metus</h2>
+										<span class="byline">Quisque semper augue mattis wisi maecenas ligula</span>
+									</header>
+									<div class="row">
+										<section class="6u">
+											<ul class="default">
+												<li><a href="#">Pellentesque elit non gravida blandit.</a></li>
+												<li><a href="#">Lorem ipsum dolor consectetuer elit.</a></li>
+												<li><a href="#">Phasellus nibh pellentesque congue.</a></li>
+												<li><a href="#">Cras vitae metus aliquam  pharetra.</a></li>
+											</ul>
+										</section>
+										<section class="6u">
+											<ul class="default">
+												<li><a href="#">Pellentesque elit non gravida blandit.</a></li>
+												<li><a href="#">Lorem ipsum dolor consectetuer elit.</a></li>
+												<li><a href="#">Phasellus nibh pellentesque congue.</a></li>
+												<li><a href="#">Cras vitae metus aliquam  pharetra.</a></li>
+											</ul>
+										</section>
+									</div>
+								</section>
+							</div>
+							<div class="4u">
+								<section>
+									<header class="major">
+										<h2>Donec dictum metus</h2>
+										<span class="byline">Mattis wisi maecenas ligula</span>
+									</header>
+									<ul class="contact">
+										<li>
+											<span class="address">Address</span>
+											<span>1234 Somewhere Road #4285 <br />Nashville, TN 00000</span>
+										</li>
+										<li>
+											<span class="mail">Mail</span>
+											<span><a href="#">someone@untitled.tld</a></span>
+										</li>
+										<li>
+											<span class="phone">Phone</span>
+											<span>(000) 000-0000</span>
+										</li>
+									</ul>
+								</section>
+							</div>
+						</div>
+
+					<!-- Copyright -->
+						<div class="copyright">
+							Design: <a href="http://templated.co">TEMPLATED</a> Images: <a href="http://unsplash.com">Unsplash</a> (<a href="http://unsplash.com/cc0">CC0</a>)
+							Jekyll Template: <a href="http://cloudcannon.com">Cloud Cannon</a>
+						</div>
+
+				</div>
+			</div>
+
+	</body>
 </html>
